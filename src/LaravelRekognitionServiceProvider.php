@@ -2,7 +2,6 @@
 
 namespace LaravelGeek\LaravelRekognition;
 
-use LaravelGeek\LaravelRekognition\LaravelRekognition;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

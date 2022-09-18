@@ -31,9 +31,9 @@ class LaravelRekognition
     {
         if (is_null($this->client)) {
             $this->client = new RekognitionClient([
-                'credentials'   => new Credentials(config('rekognition.key'), config('rekognition.secret')),
-                'region'        => config('rekognition.region'),
-                'version'       => 'latest'
+                'credentials' => new Credentials(config('rekognition.key'), config('rekognition.secret')),
+                'region' => config('rekognition.region'),
+                'version' => 'latest',
             ]);
         }
     }
@@ -41,7 +41,7 @@ class LaravelRekognition
     /**
      * Get image labels from relative file path
      *
-     * @param string $path
+     * @param  string  $path
      * @return string
      */
     public function getFromFilePath(string $path)
@@ -59,7 +59,7 @@ class LaravelRekognition
                 'Image' => [
                     'Bytes' => $fileContents,
                 ],
-                'MaxLabels'     => 12,
+                'MaxLabels' => 12,
                 'MinConfidence' => 65.00,
             ]);
 
