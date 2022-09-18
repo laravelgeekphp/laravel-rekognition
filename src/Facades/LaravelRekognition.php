@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \LaravelGeek\LaravelRekognition\LaravelRekognition
  */
-class LaravelRekognition extends Facade
+class Rekognition extends Facade
 {
     protected static function getFacadeAccessor()
     {
