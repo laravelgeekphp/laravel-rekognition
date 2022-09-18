@@ -21,13 +21,6 @@ You can install the package via composer:
 composer require laravelgeekphp/laravel-rekognition
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-rekognition-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -44,17 +37,11 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-rekognition-views"
-```
-
 ## Usage
 
 ```php
-$laravelRekognition = new LaravelGeek\LaravelRekognition();
-echo $laravelRekognition->echoPhrase('Hello, LaravelGeek!');
+$altTagLabels = \LaravelGeek\LaravelRekognition\Facades\Rekognition::getFromFilePath(Storage::path($mediaPath));
+// do something with your labels
 ```
 
 ## Testing
