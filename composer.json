@@ -36,8 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelGeek\\LaravelRekognition\\": "src",
-            "LaravelGeek\\LaravelRekognition\\Database\\Factories\\": "database/factories"
+            "LaravelGeek\\LaravelRekognition\\": "src"
         }
     },
     "autoload-dev": {
@@ -64,7 +63,7 @@
                 "LaravelGeek\\LaravelRekognition\\LaravelRekognitionServiceProvider"
             ],
             "aliases": {
-                "LaravelRekognition": "LaravelGeek\\LaravelRekognition\\Facades\\LaravelRekognition"
+                "Rekognition": "LaravelGeek\\LaravelRekognition\\Facades\\Rekognition"
             }
         }
     },
