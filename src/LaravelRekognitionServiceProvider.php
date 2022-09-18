@@ -2,7 +2,7 @@
 
 namespace LaravelGeek\LaravelRekognition;
 
-use LaravelGeek\LaravelRekognition\Commands\LaravelRekognitionCommand;
+use LaravelGeek\LaravelRekognition\LaravelRekognition;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,9 +17,10 @@ class LaravelRekognitionServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-rekognition')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-rekognition_table')
-            ->hasCommand(LaravelRekognitionCommand::class);
+            ->hasConfigFile();
+
+        $this->app->bind(LaravelRekognition::class, function () {
+            return new LaravelRekognition();
+        });
     }
 }
