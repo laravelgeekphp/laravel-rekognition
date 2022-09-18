@@ -9,7 +9,7 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 
 ## Support us
 
-You can support us by reading our [https://laravelgeek.com](blog)
+You can support us by reading our [blog](https://laravelgeek.com)
 
 ## Installation
 
