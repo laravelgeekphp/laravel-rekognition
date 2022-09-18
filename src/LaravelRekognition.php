@@ -5,6 +5,7 @@ namespace LaravelGeek\LaravelRekognition;
 use Aws\Credentials\Credentials;
 use Aws\Rekognition\RekognitionClient;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 
@@ -49,8 +50,11 @@ class LaravelRekognition
         try {
             $fileContents = Storage::get($$path);
         } catch (FileNotFoundException $exception) {
+            Log::error($exception->getMessage());
             $fileContents = null;
+            throw $exception;
         } catch (Throwable $exception) {
+            Log::error($exception->getMessage());
             $fileContents = null;
         }
 
