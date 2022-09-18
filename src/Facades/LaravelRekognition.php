@@ -5,6 +5,8 @@ namespace LaravelGeek\LaravelRekognition\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method static string getFromFilePath(string $path)
+ *
  * @see \LaravelGeek\LaravelRekognition\LaravelRekognition
  */
 class Rekognition extends Facade
