@@ -3,8 +3,8 @@
 namespace LaravelGeek\LaravelRekognition\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use LaravelGeek\LaravelRekognition\LaravelRekognitionServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
