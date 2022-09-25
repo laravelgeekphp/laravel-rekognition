@@ -7,6 +7,7 @@ use Aws\Rekognition\RekognitionClient;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use InvalidArgumentException;
 use Throwable;
 
 class LaravelRekognition
@@ -42,6 +43,8 @@ class LaravelRekognition
     /**
      * Get image labels from relative file path
      *
+     * @throws InvalidArgumentException
+     *
      * @param  string  $path
      * @return string
      */
@@ -52,10 +55,13 @@ class LaravelRekognition
         } catch (FileNotFoundException $exception) {
             Log::error($exception->getMessage());
             $fileContents = null;
-            throw $exception;
         } catch (Throwable $exception) {
             Log::error($exception->getMessage());
             $fileContents = null;
+        }
+
+        if (is_null($fileContents)) {
+            throw new InvalidArgumentException('No file contents found');
         }
 
         if ($fileContents) {
