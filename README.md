@@ -7,7 +7,7 @@
 
 This is a simple open-source Laravel Package. It's only purpose is to provide a Facade for getting image labels using AWS Rekognition.
 Example usage is below, currently only file paths are supported. You pass the path of a file and under the hood the contents of said
-file is retrieved using Storage facade. The result it passed to Rekognition using HTTP client and image labels are returned.
+file is retrieved using Storage facade. The result is passed to Rekognition using HTTP client and image labels are returned.
 ## Support us
 
 You can support us by reading our [blog](https://laravelgeek.com)
