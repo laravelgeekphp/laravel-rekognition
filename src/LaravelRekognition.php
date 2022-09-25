@@ -43,10 +43,11 @@ class LaravelRekognition
     /**
      * Get image labels from relative file path
      *
-     * @throws InvalidArgumentException
      *
      * @param  string  $path
      * @return string
+     *
+     * @throws InvalidArgumentException
      */
     public function getFromFilePath(string $path): ?string
     {
