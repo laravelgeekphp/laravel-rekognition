@@ -61,7 +61,7 @@ class LaravelRekognition
             $fileContents = null;
         }
 
-        if (is_null($fileContents)) {
+        if (is_null($fileContents) || empty($fileContents)) {
             throw new InvalidArgumentException('No file contents found');
         }
 
