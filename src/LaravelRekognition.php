@@ -45,10 +45,10 @@ class LaravelRekognition
      * @param  string  $path
      * @return string
      */
-    public function getFromFilePath(string $path)
+    public function getFromFilePath(string $path): ?string
     {
         try {
-            $fileContents = Storage::get($$path);
+            $fileContents = Storage::get($path);
         } catch (FileNotFoundException $exception) {
             Log::error($exception->getMessage());
             $fileContents = null;
@@ -69,5 +69,7 @@ class LaravelRekognition
 
             return collect($result->get('Labels'))->implode('Name', ', ');
         }
+
+        return null;
     }
 }
