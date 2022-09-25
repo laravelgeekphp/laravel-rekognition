@@ -65,18 +65,14 @@ class LaravelRekognition
             throw new InvalidArgumentException('No file contents found');
         }
 
-        if ($fileContents) {
-            $result = $this->client->detectLabels([
-                'Image' => [
-                    'Bytes' => $fileContents,
-                ],
-                'MaxLabels' => 12,
-                'MinConfidence' => 65.00,
-            ]);
+        $result = $this->client->detectLabels([
+            'Image' => [
+                'Bytes' => $fileContents,
+            ],
+            'MaxLabels' => 12,
+            'MinConfidence' => 65.00,
+        ]);
 
-            return collect($result->get('Labels'))->implode('Name', ', ');
-        }
-
-        return null;
+        return collect($result->get('Labels'))->implode('Name', ', ');
     }
 }
