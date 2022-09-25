@@ -5,10 +5,9 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/laravelgeekphp/laravel-rekognition/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/laravelgeekphp/laravel-rekognition/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravelgeekphp/laravel-rekognition.svg?style=flat-square)](https://packagist.org/packages/laravelgeekphp/laravel-rekognition)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## WIP
-This repo is still in progress  
+This is a simple open-source Laravel Package. It's only purpose is to provide a Facade for getting image labels using AWS Rekognition.
+Example usage is below, currently only file paths are supported. You pass the path of a file and under the hood the contents of said
+file is retrieved using Storage facade. The result it passed to Rekognition using HTTP client and image labels are returned.
 ## Support us
 
 You can support us by reading our [blog](https://laravelgeek.com)
@@ -40,7 +39,10 @@ return [
 ## Usage
 
 ```php
-$altTagLabels = \LaravelGeek\LaravelRekognition\Facades\Rekognition::getFromFilePath(Storage::path($mediaPath));
+use \LaravelGeek\LaravelRekognition\Facades\Rekognition;
+use Illuminate\Support\Facades\Storage;
+
+$imageLabels = Rekognition::getFromFilePath(Storage::path($mediaPath));
 // do something with your labels
 ```
 
@@ -52,7 +54,7 @@ composer test
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+This is currently the first version ever published, there is no changelog yet.
 
 ## Contributing
 
