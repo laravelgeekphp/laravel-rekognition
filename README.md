@@ -60,7 +60,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+If you discover any security related issues, please email info@laravelgeek.com instead of using the issue tracker.
 
 ## Credits
 
