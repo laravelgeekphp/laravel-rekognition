@@ -34,21 +34,20 @@ class LaravelRekognitionServiceProvider extends PackageServiceProvider
      */
     protected function ensureRekognitionIsConfigured(): void
     {
-        if (isset($_ENV['AWS_ACCESS_KEY_ID'])) {
-            Config::set('rekognition.key', $_ENV['AWS_ACCESS_KEY_ID']);
+        // Ensure we are running on Vapor...
+        if (! isset($_ENV['VAPOR_SSM_PATH'])) {
+            return;
         }
 
-        if (isset($_ENV['AWS_SECRET_ACCESS_KEY'])) {
-            Config::set('rekognition.secret', $_ENV['AWS_SECRET_ACCESS_KEY']);
-        }
+        Config::set('rekognition', array_merge([
+            'key' => $_ENV['REKOGNITION_KEY'] ?? null,
+            'secret' => $_ENV['REKOGNITION_SECRET'] ?? null,
+            'region' => $_ENV['AWS_DEFAULT_REGION'] ?? 'us-east-1',
+        ], Config::get('rekognition') ?? []));
     }
 
     public static function provideCredentials(): Credentials
     {
-        if (isset($_ENV['AWS_ACCESS_KEY_ID']) && isset($_ENV['AWS_SECRET_ACCESS_KEY'])) {
-            return new Credentials($_ENV['AWS_ACCESS_KEY_ID'], $_ENV['AWS_SECRET_ACCESS_KEY']);
-        }
-
         return new Credentials(config('rekognition.key'), config('rekognition.secret'));
     }
 }
