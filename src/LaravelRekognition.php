@@ -2,7 +2,6 @@
 
 namespace LaravelGeek\LaravelRekognition;
 
-use Aws\Credentials\Credentials;
 use Aws\Rekognition\RekognitionClient;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\Log;
