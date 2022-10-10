@@ -2,6 +2,7 @@
 
 namespace LaravelGeek\LaravelRekognition;
 
+use Aws\Credentials\Credentials;
 use Illuminate\Support\Facades\Config;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -40,5 +41,14 @@ class LaravelRekognitionServiceProvider extends PackageServiceProvider
         if (isset($_ENV['AWS_SECRET_ACCESS_KEY'])) {
             Config::set('rekognition.secret', $_ENV['AWS_SECRET_ACCESS_KEY']);
         }
+    }
+
+    public static function provideCredentials(): Credentials
+    {
+        if (isset($_ENV['AWS_ACCESS_KEY_ID']) && isset($_ENV['AWS_SECRET_ACCESS_KEY'])) {
+            return new Credentials($_ENV['AWS_ACCESS_KEY_ID'], $_ENV['AWS_SECRET_ACCESS_KEY']);
+        }
+
+        return new Credentials(config('rekognition.key'), config('rekognition.secret'));
     }
 }
