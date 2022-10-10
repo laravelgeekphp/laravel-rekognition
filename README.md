@@ -23,7 +23,7 @@ composer require laravelgeekphp/laravel-rekognition
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-rekognition-config"
+php artisan vendor:publish --tag="rekognition-config"
 ```
 
 This is the contents of the published config file:
