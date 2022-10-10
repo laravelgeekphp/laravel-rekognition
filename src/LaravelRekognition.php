@@ -33,7 +33,7 @@ class LaravelRekognition
     {
         if (is_null($this->client)) {
             $this->client = new RekognitionClient([
-                'credentials' => new Credentials(config('rekognition.key'), config('rekognition.secret')),
+                'credentials' => new Credentials($_ENV['AWS_ACCESS_KEY_ID'], $_ENV['AWS_SECRET_ACCESS_KEY']),
                 'region' => config('rekognition.region'),
                 'version' => 'latest',
             ]);
